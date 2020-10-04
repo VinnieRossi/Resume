@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
-import axios from 'axios'
+import React, { } from "react";
+import { Typography } from "@material-ui/core";
 import { landingStyles } from "./LandingStyles";
 
 const About = (): JSX.Element => {

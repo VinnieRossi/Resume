@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
-import axios from 'axios'
+import React, { useState } from "react";
+import { Typography } from "@material-ui/core";
 import { landingStyles } from "./LandingStyles";
 
 const Landing = (): JSX.Element => {
-
-    // TODO: Create custom hook to handle error, loading, data
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
 
     const styles = landingStyles();
 

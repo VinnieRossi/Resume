@@ -104,7 +104,24 @@ export const NavBar = ({ darkMode, setDarkMode }: NavBarProps): JSX.Element => {
                 />
               </a>
             </div>
-            <div className='-my-2 -mr-2 md:hidden'>
+            <div className='flex -my-2 -mr-2  md:hidden'>
+              <div className='inline m-2 '>
+                <Switch
+                  title='Dark Mode'
+                  checked={darkMode}
+                  onChange={setDarkMode}
+                  className={`${
+                    darkMode ? 'bg-blue-600' : 'bg-gray-200'
+                  } relative inline-flex items-center h-6 rounded-full w-11`}
+                >
+                  <span className='sr-only'>Dark Mode</span>
+                  <span
+                    className={`${
+                      darkMode ? 'translate-x-6' : 'translate-x-1'
+                    } inline-block w-4 h-4 transform bg-white rounded-full transition ease-in-out duration-200`}
+                  />
+                </Switch>
+              </div>
               <Popover.Button className='inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:bg-gray-700 dark:hover:bg-gray-800'>
                 <span className='sr-only'>Open menu</span>
                 <MenuIcon className='w-6 h-6' aria-hidden='true' />

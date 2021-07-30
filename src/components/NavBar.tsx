@@ -104,7 +104,7 @@ export const NavBar = ({ darkMode, setDarkMode }: NavBarProps): JSX.Element => {
                 />
               </a>
             </div>
-            <div className='flex -my-2 -mr-2  md:hidden'>
+            <div className='flex -my-2 -mr-2 md:hidden'>
               <div className='inline m-2 '>
                 <Switch
                   title='Dark Mode'

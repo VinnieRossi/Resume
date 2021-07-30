@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { NavBar } from '../NavBar';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const LandingPage = (): JSX.Element => {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <div className={darkMode ? 'dark' : ''}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <section className='flex justify-center dark:bg-gray-700 dark:text-white'>
-        <article className='max-w-5xl'>
+      <section className='flex justify-center p-8 dark:bg-gray-700'>
+        <article className='max-w-5xl prose dark:text-white'>
+          <h1 className='dark:text-white'>Article Header</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
             interdum arcu mi, sed mattis massa placerat a. Mauris volutpat lorem
@@ -28,31 +32,7 @@ const LandingPage = (): JSX.Element => {
             senectus et netus et malesuada fames ac turpis egestas. Suspendisse
             hendrerit quam in varius dictum. Duis laoreet sollicitudin justo eu
             porttitor. Donec facilisis lacus ac convallis fringilla. Suspendisse
-            potenti. Pellentesque gravida porttitor elit, vel tempus mi pretium
-            accumsan. Suspendisse condimentum dictum consequat. Suspendisse et
-            luctus leo. Quisque et luctus mauris. Sed fermentum venenatis lorem,
-            a vehicula libero tempor sed. Pellentesque nec finibus diam, a
-            malesuada mauris. In blandit malesuada tellus, id dapibus massa
-            ornare a. Vestibulum risus nulla, posuere in massa a, commodo cursus
-            lacus. Nullam ut erat nisl. Etiam pulvinar, est eget aliquet
-            scelerisque, arcu tortor ultricies sem, ac volutpat velit risus a
-            nibh. Donec ut malesuada sapien. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Sed nec dignissim lorem, in cursus
-            turpis. Donec quis lorem sagittis diam tempor consequat. Etiam
-            sagittis egestas sollicitudin. Maecenas quis luctus eros. Sed quis
-            vulputate turpis. Vestibulum vel varius ligula, ut pretium lorem.
-            Sed at placerat lacus. Nulla quis euismod lectus. Quisque eu
-            tincidunt ligula. Nam eget pulvinar turpis, vitae pharetra lacus.
-            Proin malesuada nulla eu felis elementum sodales. Curabitur vehicula
-            aliquet nunc vitae fringilla. Proin ut magna id justo fermentum
-            volutpat. Duis vitae est sed odio blandit venenatis. Quisque
-            ullamcorper nisi vel varius tempor. In hac habitasse platea
-            dictumst. Phasellus molestie arcu ac neque aliquam cursus. Nulla non
-            ullamcorper augue. Proin quis egestas magna. Phasellus eget elit sit
-            amet ligula egestas mattis. Quisque interdum odio neque, nec porta
-            sapien vulputate non. Aenean molestie turpis nec libero tempor, sed
-            interdum urna placerat. Fusce bibendum id nisl eu vulputate. Proin
-            lacus est, mollis at cursus vitae, venenatis a leo.
+            potenti.
           </p>
           <p>
             Pellentesque mattis leo ac tortor dictum pulvinar. Phasellus iaculis
@@ -76,6 +56,22 @@ const LandingPage = (): JSX.Element => {
             tempor consequat. Etiam sagittis egestas sollicitudin. Maecenas quis
             luctus eros.
           </p>
+          <SyntaxHighlighter
+            language='tsx'
+            style={darkMode ? vscDarkPlus : vs}
+            showLineNumbers
+          >
+            {`import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+const Component = () => {
+  const codeString = '(num) => num + 1';
+  return (
+    <SyntaxHighlighter language="javascript" style={dark}>
+      {codeString}
+    </SyntaxHighlighter>
+  );
+};`}
+          </SyntaxHighlighter>
         </article>
       </section>
     </div>
